@@ -1,0 +1,13 @@
+{% include 'films/header.html' %}
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<form action="/create_film/" method="post" enctype="multipart/form-data" class="postcard">
+    {% csrf_token %}
+    {{ form.as_p }}
+<div class="form-row">
+    <button type="submit">Сохранить</button>
+    <button type="reset">Отмена</button>
+</div>
+</form>
+
+{% include 'films/footer.html' %}

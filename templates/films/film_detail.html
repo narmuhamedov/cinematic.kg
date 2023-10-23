@@ -1,16 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Film Detail</title>
-</head>
-<body>
-<h1>{{film_id.title}}</h1>
-<p>{{film_id.description}}</p>
-<p>{{film_id.genre}}</p>
-<p>{{film_id.director}}</p>
-<p>{{film_id.cost}}</p>
-<p>{{film_id.year}}</p>
-<iframe src="{{film_id.trailer}}" frameborder="0"></iframe>
-</body>
-</html>
+{% load static %}
+{% include 'films/header.html' %}
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+<div class="text-center">
+    <span class="badge text-bg-warning"><h1>Детальная информация об фильмк - {{film_id.title}}</h1></span>
+</div>
+
+<div class="btn-style">
+    <button  class="btn btn-primary"><a href="/film_detail/{{ film_id.id }}/delete/">Удалить</a></button>
+    <button  class="btn btn-danger"><a href="/film_detail/{{ film_id.id }}/update/">Изменить</a></button>
+
+</div>
+
+<div class="block-box">
+
+    <div class="card" style="width: 18rem;">
+      <img src="{{film_id.image.url}}" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{film_id.title}}</h5>
+        <p class="card-text">{{film_id.description}}</p>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Жанр - {{film_id.genre}}</li>
+        <li class="list-group-item">Режисер - {{film_id.director}}</li>
+        <li class="list-group-item">Цена билета - {{film_id.cost}}</li>
+        <li class="list-group-item">Дата выхода - {{film_id.year}}</li>
+        <li class="list-group-item">Дата создания поста - {{film_id.year}}</li>
+
+    <iframe src="{{film_id.trailer}}" frameborder="0"></iframe>
+      </ul>
+    </div>
+</div>
+
+{% include 'films/footer.html' %}
