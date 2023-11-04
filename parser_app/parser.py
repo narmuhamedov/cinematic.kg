@@ -28,7 +28,6 @@ def get_data(html):
                 "title_name": item.find("div", class_='m_title').get_text(),
                 "title_url": URL + item.find("a").get("href"),
                 "image": URL + item.find("div", class_='m_thumb').find('img').get('src'),
-
             }
         )
     return manas_film
