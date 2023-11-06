@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'tvshows',
     'parser_app',
     'custom_users',
+    'hashtags',
 ]
 
 MIDDLEWARE = [
